@@ -1,0 +1,35 @@
+doctype html
+block head 
+  include head.pug
+nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      a.navbar-brand(href='/') Knuckle Travel 
+    ul.nav.navbar-nav
+      li.active
+        a(href='/') 
+          span.glyphicon.glyphicon-user
+          |   #{username}
+      li
+        a(href='/suggest-trip') Suggest Trip
+      li
+        a(href='/active-trips') Active Trips
+      li
+        a(href='/lobby') Real-Time Chat
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(href='/contacts')
+          span.glyphicon.glyphicon-envelope
+          |  Contacts
+      li
+        a(href='/register' id="registerButton")
+          span.glyphicon.glyphicon-user
+          |  Sign Up
+      li
+        a(href='/login' id="loginButton")
+          span.glyphicon.glyphicon-log-in
+          |  Login
+      li
+        a(href='/logout' id="logoutButton")
+          span.glyphicon.glyphicon-log-in
+          |  Logout

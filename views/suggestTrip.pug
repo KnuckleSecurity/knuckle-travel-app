@@ -1,0 +1,64 @@
+block nav 
+    include nav.pug
+
+script(src='js/submitTrip.js')
+script(src="js/battutaAPI.js")
+script(src="js/weatherForecast.js")
+script(src="https://code.jquery.com/ui/1.13.2/jquery-ui.js")
+script(src="https://code.jquery.com/ui/1.13.2/jquery-ui.js")
+.jumbotron
+  .container
+    // country
+    .row.w3-margin-bottom
+      .col-md-6.col-xs-6
+        p
+          b Country
+      .col-md-6.col-xs-6
+        select#country.form-control
+          option(value='') -- Country --
+    // end country row
+    // region
+    .row.w3-margin-bottom
+      .col-md-6.col-xs-6
+        p
+          b Region
+      .col-md-6.col-xs-6
+        select#region.form-control
+          option(value='') -- Region --
+    // end region row
+    // city
+    .row.w3-margin-bottom
+      .col-md-6.col-xs-6
+        p
+          b City
+      .col-md-6.col-xs-6
+        select#city.form-control
+          option(value='') -- City --
+    // end city row
+    #location
+    // city
+    .row.w3-margin-bottom
+      .col-md-6.col-xs-6
+        p
+          b Date
+      .col-md-6.col-xs-6
+          input(type="date" id="date") 
+    // end city row
+  // end container
+
+  .col-md-7.col-xs-8
+  <input type="button" value="View on maps" name="viewMapButton" onclick="submitSuggestion('no')">
+  
+ 
+  <input type="button" value="Weekly forecast" name="seeForecastButton" onclick='weatherForecast({"Country":$("#country option:selected").text(), "City":$("#city")[0].value , "Region":$("#region")[0].value})'>
+  <input type="button" value="Submit" name="submitButton" onclick="submitSuggestion('yes')">
+
+div(id="messagePlaceHolder")
+div(id="googleMap" style="width:100%;height:400px;")
+script(src='js/googleMaps.js')
+script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqI3JsQ1lcq3jLrZtu0ybxVE5S1PBg21Y&callback=myMap")
+// end jumbotron
+// footer
+.container.text-center.text-primary
+
+link(rel='stylesheet', href='css/style.css')

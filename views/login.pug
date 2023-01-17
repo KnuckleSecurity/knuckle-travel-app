@@ -1,0 +1,26 @@
+
+html
+  script(src='js/login.js')
+  block nav 
+      include nav.pug
+  head
+  link(rel='stylesheet', href='css/reg-log.css')
+  body
+    .form-box
+      h2 Login
+      form#login-form
+        .user-box
+          input#fieldUsername1(type='text', name='', required='')
+          label Username
+        .user-box
+          input#fieldPassword1(type='password', name='', required='')
+          label Password
+        a#submit-button(onclick='loginUser()')
+          span
+          span
+          span
+          span
+          label Login
+                SUBMIT
+
+    div(id="messagePlaceHolder")

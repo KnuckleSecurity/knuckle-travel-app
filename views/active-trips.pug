@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    script(src='js/queryTrips.js')
+    script(src='js/queryUser.js')
+    script(src='js/joinTrip.js')
+    script(src='js/leaveTrip.js')
+    script(src="js/weatherForecast.js")
+    script(src="js/tripsData.js")
+
+    block nav 
+        include nav 
+    link(rel='stylesheet', href='css/style.css')
+        
+    body 
+        
+        div(id="active-tripsDiv")
+            h1(id="trips-header") Join to Trips
+        div(id="messagePlaceHolder")
+        <div class="sidebar">
+            <p class="sidebar-header"></i> Menu</p>
+                <ul>
+                    <li onclick="queryTrips('all')"><a href="#" ></i> Join to Trips</a></li>
+                    <li onclick="queryTrips('me')"><a href="#" ></i> My Trips</a></li>
+                    <li onclick="queryUser()"><a href="#" ></i> Travellers</a></li>
+                </ul> 
+        </div>  
+        
+        p(id="showData0")
+        p(id="showData")
+ 
+    
+

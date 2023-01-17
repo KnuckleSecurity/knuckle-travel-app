@@ -1,0 +1,28 @@
+doctype html
+
+
+html
+  script(src='js/register.js')
+  block nav 
+      include nav.pug
+  head
+  link(rel='stylesheet', href='css/reg-log.css')
+  body
+    .form-box
+      h2 Register
+      form#register-form
+        .user-box
+          input#fieldUsername1(type='text', name='', required='')
+          label Username
+        .user-box
+          input#fieldPassword1(type='password', name='', required='')
+          label Password
+        a#submit-button(onclick='registerUser()')
+          span
+          span
+          span
+          span
+          label Register
+                SUBMIT
+
+    div(id="messagePlaceHolder")
