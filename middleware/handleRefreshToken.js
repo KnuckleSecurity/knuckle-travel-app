@@ -30,6 +30,12 @@ const handleRefreshToken = async (req, resp, next)=>{
       // IT MEANS IT IS USED BEFORE. THEREFORE CLEAR CLIENT SIDE COOKIES.
       resp.clearCookie('refreshToken', { httpOnly: true, sameSite: 'None', secure: true , path:"/"});
       resp.clearCookie('Authorization', { httpOnly: true, sameSite: 'None', secure: true , path:"/"});
+
+      // Delete all refresh tokens.
+      await User.updateOne(
+        { '_id': match._id },
+        { $unset: { "refreshTokens": 1} }
+      );
       return next()}  
     
     // IF THE REFRESH JWT IS VERIFIED AND FOUND IN THE DATABASE, 
