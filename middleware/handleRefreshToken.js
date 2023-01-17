@@ -13,8 +13,9 @@ const handleRefreshToken = async (req, resp, next)=>{
     const refreshToken = req.cookies.refreshToken.split(' ')[1]
 
     // TRY TO VERIFY THE REFRESH JWT TOKEN
+    let refreshTokenCheck;
     try{
-      const refreshTokenCheck = jwt.verify(refreshToken,publicKey)
+      refreshTokenCheck = jwt.verify(refreshToken,publicKey)
     }catch(err){
       // IF THE REFRESH TOKEN IS UNVALID, CLEAR CLIENT SIDE COOKIES
       resp.clearCookie('refreshToken', { httpOnly: true, sameSite: 'None', secure: true , path:"/"});
@@ -33,9 +34,10 @@ const handleRefreshToken = async (req, resp, next)=>{
 
       // Delete all refresh tokens.
       await User.updateOne(
-        { '_id': match._id },
+        { 'username': refreshTokenCheck.username },
         { $unset: { "refreshTokens": 1} }
       );
+      req.reuse=true
       return next()}  
     
     // IF THE REFRESH JWT IS VERIFIED AND FOUND IN THE DATABASE, 

@@ -4,7 +4,7 @@ const path = require('path')
 const authCheck = (req, resp, next)=>{
 
     // IF THERE IS NO ACCESS TOKEN, CLIENT IS UNAUTHORIZED.
-    if(req.JWTexists==false){
+    if(req.JWTexists==false || req.reuse ==true){
         if(req.method == "GET"){
             return resp.status(401).render(path.join(__dirname,'..','views','error'),{
                 title:"Unauthorized."
