@@ -1,7 +1,7 @@
 
 // CROSS ORIGIN RESOURCE SHARING SETTINGS.
 
-const corsWhiteList = ['http://localhost:5055']
+const corsWhiteList = ['https://knuckle-travel.herokuapp.com','http://localhost:5050']
 
 const corsOptions = {
   origin: (origin, callback) => {

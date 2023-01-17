@@ -12,6 +12,8 @@ const { userJoin, getCurrentUser, userLeave, getRoomUsers } = require('./utils/u
 
 const botName = "KnuckleTravel Bot"
 
+
+app.use(cors(require('./config/cors'))) //cross origin resource sharing
 // CONNECT TO THE DATABASE.
 const uri = "mongodb+srv://travel:travel@travel.ym0sozy.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(uri).then(

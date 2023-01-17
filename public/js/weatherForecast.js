@@ -12,7 +12,7 @@ async function weatherForecast(locationInfoJson){
       return
     }
     window.open(
-      `http://localhost:5050/weatherForecast?Country=${Country}&City=${City}&Region=${Region}`,
+      `https://knuckle-travel.herokuapp.com/weatherForecast?Country=${Country}&City=${City}&Region=${Region}`,
       'Forecast',
       'width=600,height=600')
   
