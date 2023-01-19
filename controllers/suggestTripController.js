@@ -54,8 +54,9 @@ const postReq = async (req,resp)=>{
             message="You are already signed to this list."
         }
     }
-    
+    try{
     return resp.send({"status":"ok","message":message,"data":{"lat":req.lat,"long":req.long}})
+    }catch{}
 }
 
 module.exports = {getReq, postReq}
